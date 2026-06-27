@@ -318,7 +318,7 @@
                 audioCodec = "opus";
                 audioSource = "default_output";
                 colorRange = "limited";
-                directory = "/home/atsada/media/videos";
+                directory = "$HOME/media/videos";
                 frameRate = 60;
                 quality = "very_high";
                 showCursor = true;
