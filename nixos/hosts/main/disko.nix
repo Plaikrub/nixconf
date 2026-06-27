@@ -32,7 +32,7 @@
                         };
                         root = {
                             name = "NixOS";
-                            size = "100%FREE";
+                            size = "100%";
                             content = {
                                 type = "btrfs";
                                 extraArgs = [
