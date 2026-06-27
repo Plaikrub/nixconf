@@ -120,13 +120,13 @@
                 {
                     matches = [{ app-id = "brave-work"; }];
                     open-on-workspace = "w0";
-                    open-fullscreen = true;
+                    open-maximized = true;
                 }
                 # Brave (Personal) -- Profile 1
                 {
                     matches = [{ app-id = "brave-personal"; }];
                     open-on-workspace = "w1";
-                    open-fullscreen = true;
+                    open-maximized = true;
                 }
                 # Coding: VS Code, IntelliJ IDEA
                 {
@@ -136,7 +136,7 @@
                         { app-id = "idea"; }
                     ];
                     open-on-workspace = "w2";
-                    open-fullscreen = true;
+                    open-maximized = true;
                 }
                 # Gaming: Steam, proton/wine/umu games
                 # ponytail: fullscreen covers noctalia bar on w3 — no layer-rule needed
@@ -158,7 +158,7 @@
                 {
                     matches = [{ app-id = "vesktop"; }];
                     open-on-workspace = "w5";
-                    open-fullscreen = true;
+                    open-maximized = true;
                 }
                 # Bitwarden
                 {
@@ -169,7 +169,7 @@
                 {
                     matches = [{ app-id = "thunderbird"; }];
                     open-on-workspace = "w7";
-                    open-fullscreen = true;
+                    open-maximized = true;
                 }
             ];
 

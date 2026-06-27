@@ -4,7 +4,7 @@
             enable = true;
             settings = {
                 default_session = {
-                    command = "${lib.getExe pkgs.tuigreet} --time --remember --user ${config.preferences.user.name} --cmd ${config.programs.niri.package}/bin/niri-session";
+                    command = "${lib.getExe pkgs.tuigreet} --time --remember --cmd ${config.programs.niri.package}/bin/niri-session";
                     user = config.preferences.user.name;
                 };
             };
