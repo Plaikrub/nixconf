@@ -63,11 +63,8 @@ sudo reboot
 # Login with initial password, then CHANGE IT IMMEDIATELY
 passwd
 
-# Clone repo locally for editing and updates
-git clone https://github.com/Plaikrub/nixconf ~/projects/nixconf
-
-# neovimDynamic also expects the repo at this path
-ln -s ~/projects/nixconf ~/.local/nixconf
+# Clone repo to the path neovimDynamic expects
+git clone https://github.com/Plaikrub/nixconf ~/.local/nixconf
 ```
 
 ## Updating
@@ -75,7 +72,7 @@ ln -s ~/projects/nixconf ~/.local/nixconf
 ### Update system
 
 ```bash
-cd ~/projects/nixconf
+cd ~/.local/nixconf
 
 # Apply current flake
 sudo nixos-rebuild switch --flake .#main
