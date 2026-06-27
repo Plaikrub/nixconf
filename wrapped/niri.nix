@@ -34,6 +34,10 @@
                 };
             };
 
+            clipboard = {
+                disable-primary = _: {};
+            };
+
             binds = {
                 "Mod+Return".spawn = config.terminal;
 
