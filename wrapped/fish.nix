@@ -1,6 +1,8 @@
 {self, ...}: {
     flake.wrappers.fish = { wlib, pkgs, lib, ... }: {
         imports = [wlib.wrapperModules.fish];
+        # ponytail: override wrapper's --no-config so fish defaults (history, completions) load
+        flags."--no-config" = false;
         configFile.content = let
             selfpkgs = self.packages."${pkgs.stdenv.hostPlatform.system}";
         in
@@ -9,8 +11,6 @@
             set fish_greeting
             fish_vi_key_bindings
 
-            # ponytail: --no-config skips fish's default fish_history setup
-            set -g fish_history fish
             set -g fish_history_max 100000
             # sync history across sessions before each command
             function _fish_sync_history --on-event fish_preexec
