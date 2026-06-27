@@ -27,7 +27,7 @@
             appLauncher = {
                 customLaunchPrefix = "";
                 customLaunchPrefixEnabled = false;
-                enableClipPreview = true;
+                enableClipPreview = false;
                 enableClipboardHistory = false;
                 iconMode = "tabler";
                 pinnedExecs = [];
@@ -36,7 +36,7 @@
                 sortByMostUsed = true;
                 terminalCommand = "kitty -e";
                 useApp2Unit = false;
-                viewMode = "list";
+                viewMode = "grid";
             };
             audio = {
                 cavaFrameRate = 30;
@@ -52,84 +52,84 @@
                 density = "comfortable";
                 exclusive = true;
                 floating = false;
-                marginHorizontal = 0.25;
-                marginVertical = 0.25;
+                marginHorizontal = 0;
+                marginVertical = 0;
                 monitors = [];
-                outerCorners = true;
-                position = "left";
+                outerCorners = false;
+                position = "bottom";
                 showCapsule = false;
                 showOutline = false;
                 transparent = false;
                 widgets = {
-                center = [];
-                left = [
+                    center = [];
+                    left = [
                     {
-                    colorizeDistroLogo = true;
-                    colorizeSystemIcon = "tertiary";
-                    customIconPath = "";
-                    enableColorization = true;
-                    id = "ControlCenter";
-                    useDistroLogo = true;
+                        colorizeDistroLogo = true;
+                        colorizeSystemIcon = "tertiary";
+                        customIconPath = "";
+                        enableColorization = true;
+                        id = "ControlCenter";
+                        useDistroLogo = true;
                     }
                     {
-                    characterCount = 2;
-                    colorizeIcons = false;
-                    enableScrollWheel = true;
-                    followFocusedScreen = false;
-                    hideUnoccupied = true;
-                    id = "Workspace";
-                    labelMode = "none";
-                    showApplications = false;
-                    showLabelsOnlyWhenOccupied = true;
+                        characterCount = 2;
+                        colorizeIcons = false;
+                        enableScrollWheel = true;
+                        followFocusedScreen = false;
+                        hideUnoccupied = true;
+                        id = "Workspace";
+                        labelMode = "none";
+                        showApplications = false;
+                        showLabelsOnlyWhenOccupied = true;
                     }
-                ];
-                right = [
+                    ];
+                    right = [
                     {
-                    hideWhenZero = false;
-                    id = "NotificationHistory";
-                    showUnreadBadge = true;
-                    }
-                    {
-                    id = "PowerProfile";
+                        hideWhenZero = false;
+                        id = "NotificationHistory";
+                        showUnreadBadge = true;
                     }
                     {
-                    displayMode = "alwaysHide";
-                    id = "Volume";
+                        id = "PowerProfile";
                     }
                     {
-                    deviceNativePath = "";
-                    displayMode = "alwaysShow";
-                    hideIfNotDetected = true;
-                    id = "Battery";
-                    showNoctaliaPerformance = false;
-                    showPowerProfiles = false;
-                    warningThreshold = 20;
+                        displayMode = "alwaysHide";
+                        id = "Volume";
                     }
                     {
-                    displayMode = "alwaysHide";
-                    id = "Microphone";
+                        deviceNativePath = "";
+                        displayMode = "alwaysShow";
+                        hideIfNotDetected = true;
+                        id = "Battery";
+                        showNoctaliaPerformance = false;
+                        showPowerProfiles = false;
+                        warningThreshold = 20;
                     }
                     {
-                    displayMode = "forceOpen";
-                    id = "KeyboardLayout";
+                        displayMode = "alwaysHide";
+                        id = "Microphone";
                     }
                     {
-                    customFont = "";
-                    formatHorizontal = "HH:mm ddd, MMM dd";
-                    formatVertical = "HH mm - dd MM";
-                    id = "Clock";
-                    useCustomFont = false;
-                    usePrimaryColor = true;
+                        displayMode = "forceOpen";
+                        id = "KeyboardLayout";
                     }
                     {
-                    blacklist = [];
-                    colorizeIcons = false;
-                    drawerEnabled = true;
-                    hidePassive = false;
-                    id = "Tray";
-                    pinned = [];
+                        customFont = "";
+                        formatHorizontal = "HH:mm ddd, MMM dd";
+                        formatVertical = "HH mm - dd MM";
+                        id = "Clock";
+                        useCustomFont = false;
+                        usePrimaryColor = true;
                     }
-                ];
+                    {
+                        blacklist = [];
+                        colorizeIcons = false;
+                        drawerEnabled = true;
+                        hidePassive = false;
+                        id = "Tray";
+                        pinned = [];
+                    }
+                    ];
                 };
             };
             brightness = {
@@ -200,35 +200,27 @@
             desktopWidgets = {
                 enabled = false;
                 gridSnap = false;
-                monitorWidgets = [
-                {
-                    name = "HDMI-A-1";
-                    widgets = [
-                    {
-                        hideMode = "visible";
-                        id = "MediaPlayer";
-                        showBackground = true;
-                        showButtons = true;
-                        visualizerType = "linear";
-                        x = 100;
-                        y = 200;
-                    }
-                    ];
-                }
-                ];
+                monitorWidgets = [];
             };
             dock = {
                 animationSpeed = 2;
                 backgroundOpacity = 1;
                 colorizeIcons = false;
                 deadOpacity = 0.6;
-                displayMode = "auto_hide";
-                enabled = false;
+                displayMode = "always_show";
+                enabled = true;
                 floatingRatio = 1;
                 inactiveIndicators = false;
                 monitors = [];
                 onlySameOutput = true;
-                pinnedApps = [];
+                pinnedApps = [
+                    "brave"
+                    "vesktop"
+                    "thunderbird"
+                    "bitwarden-desktop"
+                    "kitty"
+                    "steam"
+                ];
                 pinnedStatic = false;
                 size = 1;
             };
@@ -236,20 +228,20 @@
                 allowPanelsOnScreenWithoutBar = true;
                 animationDisabled = false;
                 animationSpeed = 1;
-                boxRadiusRatio = 1;
+                boxRadiusRatio = 0;
                 compactLockScreen = false;
                 dimmerOpacity = 0.15;
-                enableShadows = true;
-                forceBlackScreenCorners = false;
-                iRadiusRatio = 1;
+                enableShadows = false;
+                forceBlackScreenCorners = true;
+                iRadiusRatio = 0;
                 language = "";
                 lockOnSuspend = true;
-                radiusRatio = 1;
+                radiusRatio = 0;
                 scaleRatio = 1;
-                screenRadiusRatio = 1;
+                screenRadiusRatio = 0;
                 shadowDirection = "bottom_right";
-                shadowOffsetX = 2;
-                shadowOffsetY = 3;
+                shadowOffsetX = 0;
+                shadowOffsetY = 0;
                 showHibernateOnLockScreen = false;
                 showScreenCorners = false;
                 showSessionButtonsOnLockScreen = true;
@@ -289,7 +281,7 @@
                 criticalUrgencyDuration = 15;
                 enableKeyboardLayoutToast = true;
                 enabled = true;
-                location = "top_right";
+                location = "bottom_right";
                 lowUrgencyDuration = 8;
                 monitors = [];
                 normalUrgencyDuration = 8;
@@ -318,7 +310,7 @@
                 audioCodec = "opus";
                 audioSource = "default_output";
                 colorRange = "limited";
-                directory = "/home/atsada/media/videos";
+                directory = "$HOME/media/videos";
                 frameRate = 60;
                 quality = "very_high";
                 showCursor = true;
