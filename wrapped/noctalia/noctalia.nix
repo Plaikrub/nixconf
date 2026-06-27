@@ -56,7 +56,7 @@
                 marginVertical = 0;
                 monitors = [];
                 outerCorners = false;
-                position = "bottom";
+                position = "top";
                 showCapsule = false;
                 showOutline = false;
                 transparent = false;
@@ -214,14 +214,15 @@
                 monitors = [];
                 onlySameOutput = true;
                 pinnedApps = [
-                    "brave"
+                    "brave --profile-directory=Default"
+                    "brave --profile-directory=Profile\\ 1"
                     "vesktop"
                     "thunderbird"
                     "bitwarden-desktop"
                     "kitty"
                     "steam"
                 ];
-                pinnedStatic = false;
+                pinnedStatic = true;
                 size = 1;
             };
             general = {
