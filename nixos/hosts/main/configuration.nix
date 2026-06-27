@@ -8,10 +8,11 @@
             self.nixosModules.base
             self.nixosModules.general
             self.nixosModules.network
+            
+            self.nixosModules.login
             self.nixosModules.desktop
             self.nixosModules.gaming
             self.nixosModules.dev
-            self.nixosModules.login
 
             # disko
             inputs.disko.nixosModules.disko
