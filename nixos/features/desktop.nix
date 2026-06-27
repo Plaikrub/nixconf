@@ -14,6 +14,8 @@
             pkgs.pcmanfm
             selfpkgs.terminal
             selfpkgs.noctalia-shell
+            pkgs.xdg-utils
+            pkgs.xdg-user-dirs
             pkgs.wl-clipboard
             pkgs.vesktop
             pkgs.bitwarden-desktop
