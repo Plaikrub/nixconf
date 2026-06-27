@@ -116,14 +116,15 @@
 
             window-rules = [
                 # Brave (Work) -- Default profile
+                # ponytail: --class sets wayland app-id, title doesn't include profile name
                 {
-                    matches = [{ app-id = "brave"; title = ".* — Work — Brave"; }];
+                    matches = [{ app-id = "brave-work"; }];
                     open-on-workspace = "w0";
                     open-fullscreen = true;
                 }
                 # Brave (Personal) -- Profile 1
                 {
-                    matches = [{ app-id = "brave"; title = ".* — Personal — Brave"; }];
+                    matches = [{ app-id = "brave-personal"; }];
                     open-on-workspace = "w1";
                     open-fullscreen = true;
                 }
@@ -215,11 +216,15 @@
                 noctaliaExe
                 "${pkgs.swaybg}/bin/swaybg -c 181818"
                 # Autostart apps (except coding tools)
-                "brave --profile-directory=Default"
-                "brave --profile-directory=Profile\\ 1"
+                # ponytail: \\  in nix = literal \, niri shell-splits \  as escaped space
+                # ponytail: bare brave — unfree, wrapper pkgs lacks permit; --class sets app-id for window rules
+                "brave --class=brave-work --profile-directory=Default"
+                "brave --class=brave-personal --profile-directory=Profile\\ 1"
                 "vesktop"
+                # ponytail: bare names — both already in systemPackages, wrapper pkgs lacks allowUnfree/insecure permits
                 "bitwarden"
-                "thunderbird"
+                "${lib.getExe pkgs.thunderbird}"
+                "steam"
             ];
         };
     };

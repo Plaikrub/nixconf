@@ -10,7 +10,7 @@
                 name = "brave-work";
                 desktopName = "Brave (Work)";
                 genericName = "Web Browser";
-                exec = ''${brave-bin} --profile-directory="Default" %U'';
+                exec = ''${brave-bin} --class=brave-work --profile-directory="Default" %U'';
                 icon = "brave";
                 mimeTypes = [
                     "text/html"
@@ -26,7 +26,7 @@
                 name = "brave-personal";
                 desktopName = "Brave (Personal)";
                 genericName = "Web Browser";
-                exec = ''${brave-bin} --profile-directory="Profile 1" %U'';
+                exec = ''${brave-bin} --class=brave-personal --profile-directory="Profile 1" %U'';
                 icon = "brave";
                 mimeTypes = [
                     "text/html"

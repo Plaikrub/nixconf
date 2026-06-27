@@ -22,8 +22,8 @@
 
                             "default.clock.rate" = 96000;
                             "default.clock.allowed-rates" = [44100 48000 88200 96000 192000 352800 384000];
-                            "default.clock.quantum" = 256;
-                            "default.clock.min-quantum" = 32;
+                            "default.clock.quantum" = 1024;
+                            "default.clock.min-quantum" = 128;
                             "default.clock.max-quantum" = 4096;
                         };
                         "stream.properties" = {
@@ -55,50 +55,40 @@
                     };
                 };
 
-                # virtual sinks for per-app volume control
-                # ponytail: null sinks + loopback to default output, no WirePlumber rules needed
+                # ponytail: module-combine-stream replaces null-sink+loopback (null-sink removed in pipewire 1.6+)
+                # combine.mode=sink makes a virtual sink, stream.rules auto-forwards to all real sinks
                 pipewire."98-virtual-sinks" = {
                     "context.modules" = [
                         {
-                            name = "libpipewire-module-null-sink";
+                            name = "libpipewire-module-combine-stream";
                             args = {
                                 "node.name" = "browser";
                                 "node.description" = "Browser";
-                                "media.class" = "Audio/Sink";
+                                "combine.mode" = "sink";
                                 "audio.rate" = 48000;
                                 "audio.channels" = 2;
+                                "stream.rules" = [
+                                    {
+                                        matches = [{"media.class" = "Audio/Sink"; "node.name" = "~browser";} {"media.class" = "Audio/Sink"; "node.name" = "~discord";}];
+                                        actions = {"create-stream" = {};};
+                                    }
+                                ];
                             };
                         }
                         {
-                            name = "libpipewire-module-loopback";
-                            args = {
-                                "capture.props" = {
-                                    "node.name" = "browser-loopback";
-                                    "node.target" = "browser";
-                                    "stream.capture.sink" = true;
-                                };
-                                "playback.props" = {};
-                            };
-                        }
-                        {
-                            name = "libpipewire-module-null-sink";
+                            name = "libpipewire-module-combine-stream";
                             args = {
                                 "node.name" = "discord";
                                 "node.description" = "Discord";
-                                "media.class" = "Audio/Sink";
+                                "combine.mode" = "sink";
                                 "audio.rate" = 48000;
                                 "audio.channels" = 2;
-                            };
-                        }
-                        {
-                            name = "libpipewire-module-loopback";
-                            args = {
-                                "capture.props" = {
-                                    "node.name" = "discord-loopback";
-                                    "node.target" = "discord";
-                                    "stream.capture.sink" = true;
-                                };
-                                "playback.props" = {};
+                                "stream.rules" = [
+                                    {
+                                        matches = [{"media.class" = "Audio/Sink"; "node.name" = "~browser";} {"media.class" = "Audio/Sink"; "node.name" = "~discord";}];
+                                        actions = {"create-stream" = {};};
+                                    }
+                                ];
                             };
                         }
                     ];
