@@ -20,7 +20,7 @@
         };
 
         environment.variables = {
-            GTK_THEME = theme-name;
+            GTK_THEME = lib.mkDefault theme-name;
         };
 
         programs = {
