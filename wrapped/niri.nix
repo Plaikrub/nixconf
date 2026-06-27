@@ -175,7 +175,7 @@
                 "HDMI-A-1" = {
                     position = _: {
                         props = {
-                            x = 1;
+                            x = 1920;
                             y = 0;
                         };
                     };
@@ -209,7 +209,7 @@
                 "brave --profile-directory=Default"
                 "brave --profile-directory=Profile\\ 1"
                 "vesktop"
-                "bitwarden-desktop"
+                "bitwarden"
                 "thunderbird"
             ];
         };
