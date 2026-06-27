@@ -213,6 +213,8 @@
                 inactiveIndicators = false;
                 monitors = [];
                 onlySameOutput = true;
+                launcherPosition = "start";
+                launcherIcon = "apps";
                 pinnedApps = [
                     "brave --profile-directory=Default"
                     "brave --profile-directory=Profile\\ 1"
