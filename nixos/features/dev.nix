@@ -17,7 +17,7 @@
             zig
             nodejs
             vscode
-            jetbrains.idea-oss
+            jetbrains.idea
             jdk21
             gradle
             godot
