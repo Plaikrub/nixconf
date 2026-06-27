@@ -38,7 +38,7 @@ Download from https://nixos.org/download/ and boot the GUI installer.
 # Clone the repo
 sudo nix --extra-experimental-features 'nix-command flakes' \
   run github:nixos/nixpkgs/nixos-unstable#git -- \
-  clone https://github.com:Goxore/nixconf /mnt/etc/nixconf
+  clone https://github.com/Plaikrub/nixconf /mnt/etc/nixconf
 
 # OR if you have it locally:
 sudo cp -r ~/projects/nixconf /mnt/etc/nixconf
@@ -71,7 +71,7 @@ sudo reboot
 passwd
 
 # Clone repo to the path neovimDynamic expects
-git clone https://github.com:Goxore/nixconf ~/.local/nixconf
+git clone https://github.com/Plaikrub/nixconf ~/.local/nixconf
 ```
 
 ## Updating
