@@ -38,13 +38,16 @@
 
         environment.systemPackages = [
             pkgs.pcmanfm
+            selfpkgs.git
             selfpkgs.terminal
             selfpkgs.noctalia-shell
             pkgs.xdg-utils
+            pkgs.xdg-user-dirs
             pkgs.pavucontrol
             pkgs.wl-clipboard
-            selfpkgs.git
-            vesktop-split
+            pkgs.bitwarden-desktop
+            pkgs.thunderbird
+
             # ponytail: desktop entry so noctalia launcher finds mullvad-exclude vesktop
             (pkgs.makeDesktopItem {
                 name = "vesktop";
@@ -55,8 +58,6 @@
                 categories = [ "Network" "InstantMessaging" ];
                 mimeTypes = [ "x-scheme-handler/discord" ];
             })
-            pkgs.bitwarden-desktop
-            pkgs.thunderbird
         ];
 
         fonts.packages = with pkgs; [
