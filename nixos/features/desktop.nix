@@ -40,13 +40,13 @@
             monospace = ["FiraMono Nerd Font"];
         };
 
-        environment.etc."xdg/user-dirs.dirs".text = ''
-            XDG_DESKTOP_DIR="$HOME/desktop"
-            XDG_DOCUMENTS_DIR="$HOME/documents"
-            XDG_DOWNLOAD_DIR="$HOME/downloads"
-            XDG_PICTURES_DIR="$HOME/media/pictures"
-            XDG_MUSIC_DIR="$HOME/media/music"
-            XDG_VIDEOS_DIR="$HOME/media/videos"
+        environment.etc."xdg/user-dirs.defaults".text = ''
+            DESKTOP=desktop
+            DOCUMENTS=documents
+            DOWNLOAD=downloads
+            PICTURES=media/pictures
+            MUSIC=media/music
+            VIDEOS=media/videos
         '';
 
         # Tell apps to prefer dark theme

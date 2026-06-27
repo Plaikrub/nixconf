@@ -55,6 +55,55 @@
                     };
                 };
 
+                # virtual sinks for per-app volume control
+                # ponytail: null sinks + loopback to default output, no WirePlumber rules needed
+                pipewire."98-virtual-sinks" = {
+                    "context.modules" = [
+                        {
+                            name = "libpipewire-module-null-sink";
+                            args = {
+                                "node.name" = "browser";
+                                "node.description" = "Browser";
+                                "media.class" = "Audio/Sink";
+                                "audio.rate" = 48000;
+                                "audio.channels" = 2;
+                            };
+                        }
+                        {
+                            name = "libpipewire-module-loopback";
+                            args = {
+                                "capture.props" = {
+                                    "node.name" = "browser-loopback";
+                                    "node.target" = "browser";
+                                    "stream.capture.sink" = true;
+                                };
+                                "playback.props" = {};
+                            };
+                        }
+                        {
+                            name = "libpipewire-module-null-sink";
+                            args = {
+                                "node.name" = "discord";
+                                "node.description" = "Discord";
+                                "media.class" = "Audio/Sink";
+                                "audio.rate" = 48000;
+                                "audio.channels" = 2;
+                            };
+                        }
+                        {
+                            name = "libpipewire-module-loopback";
+                            args = {
+                                "capture.props" = {
+                                    "node.name" = "discord-loopback";
+                                    "node.target" = "discord";
+                                    "stream.capture.sink" = true;
+                                };
+                                "playback.props" = {};
+                            };
+                        }
+                    ];
+                };
+
                 # cooler denoising
                 pipewire."99-input-denoising" = {
                     "context.modules" = [
