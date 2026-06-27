@@ -37,6 +37,7 @@
         };
 
         environment.systemPackages = [
+            pkgs.xarchiver
             pkgs.pcmanfm
             selfpkgs.git
             selfpkgs.terminal
