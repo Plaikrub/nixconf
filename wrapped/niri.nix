@@ -218,8 +218,8 @@
                 # Autostart apps (except coding tools)
                 # ponytail: \\  in nix = literal \, niri shell-splits \  as escaped space
                 # ponytail: bare brave — unfree, wrapper pkgs lacks permit; --class sets app-id for window rules
-                ''${brave-bin} --class=brave-work --profile-directory="Default" %U''
-                ''${brave-bin} --class=brave-personal --profile-directory="Profile 1" %U''
+                ''${lib.getExe pkgs.brave} --class=brave-work --profile-directory="Default" %U''
+                ''${lib.getExe pkgs.brave} --class=brave-personal --profile-directory="Profile 1" %U''
                 "vesktop"
                 # ponytail: bare names — both already in systemPackages, wrapper pkgs lacks allowUnfree/insecure permits
                 "bitwarden"
