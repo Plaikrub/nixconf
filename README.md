@@ -35,19 +35,11 @@ Download from https://nixos.org/download/ and boot the GUI installer.
 ### 2. Partition disks with disko
 
 ```bash
-# Clone the repo
-sudo nix --extra-experimental-features 'nix-command flakes' \
-  run github:nixos/nixpkgs/nixos-unstable#git -- \
-  clone https://github.com/Plaikrub/nixconf /mnt/etc/nixconf
-
-# OR if you have it locally:
-sudo cp -r ~/projects/nixconf /mnt/etc/nixconf
-
-# Run disko to format and mount both NVMes
+# Run disko directly from the GitHub repo (no clone needed)
 sudo nix --extra-experimental-features 'nix-command flakes' \
   run github:nix-community/disko -- \
   --mode destroy,format,mount \
-  --flake /mnt/etc/nixconf#hostMain
+  --flake github:Plaikrub/nixconf#hostMain
 ```
 
 This creates:
@@ -58,7 +50,8 @@ This creates:
 ### 3. Install NixOS
 
 ```bash
-sudo nixos-install --flake /mnt/etc/nixconf#main --root /mnt
+# Install directly from the GitHub repo (no clone needed)
+sudo nixos-install --flake github:Plaikrub/nixconf#main --root /mnt
 ```
 
 ### 4. Post-install
@@ -70,8 +63,11 @@ sudo reboot
 # Login with initial password, then CHANGE IT IMMEDIATELY
 passwd
 
-# Clone repo to the path neovimDynamic expects
-git clone https://github.com/Plaikrub/nixconf ~/.local/nixconf
+# Clone repo locally for editing and updates
+git clone https://github.com/Plaikrub/nixconf ~/projects/nixconf
+
+# neovimDynamic also expects the repo at this path
+ln -s ~/projects/nixconf ~/.local/nixconf
 ```
 
 ## Updating
