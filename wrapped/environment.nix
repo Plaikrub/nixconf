@@ -45,7 +45,7 @@
         imports = [self.wrapperModules.niri];
         terminal = lib.getExe selfpkgs.terminal;
         env = {
-            EDITOR = lib.getExe selfpkgs.neovim;
+            EDITOR = lib.mkDefault lib.getExe selfpkgs.neovim;
             GOBIN = "$HOME/.local/bin";
             GOPATH = "$HOME/.local/share/go";
             CARGO_HOME = "$HOME/.local/share/cargo";

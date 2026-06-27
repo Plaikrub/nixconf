@@ -11,7 +11,7 @@
             settings = {
                 enable_audio_bell = "no";
 
-                font_size = 14;
+                font_size = 12;
                 font_family = "FiraMono Nerd Font";
 
                 cursor_text_color = "background";
