@@ -1,6 +1,19 @@
 {self, ...}: {
     flake.nixosModules.desktop = {pkgs, lib, ...}: let
         selfpkgs = self.packages."${pkgs.stdenv.hostPlatform.system}";
+        # ponytail: wrap vesktop with mullvad-exclude so Discord bypasses VPN
+        vesktop-split = pkgs.symlinkJoin {
+            name = "vesktop";
+            paths = [pkgs.vesktop];
+            postBuild = ''
+                rm $out/bin/vesktop
+                cat > $out/bin/vesktop <<'EOF'
+            #!${pkgs.bash}/bin/bash
+            exec ${pkgs.mullvad}/bin/mullvad-exclude ${pkgs.vesktop}/bin/vesktop "$@"
+            EOF
+                chmod +x $out/bin/vesktop
+            '';
+        };
     in {
         imports = [
             self.nixosModules.pipewire
@@ -18,7 +31,7 @@
             pkgs.xdg-user-dirs
             pkgs.pavucontrol
             pkgs.wl-clipboard
-            pkgs.vesktop
+            vesktop-split
             pkgs.bitwarden-desktop
             pkgs.thunderbird
         ];
