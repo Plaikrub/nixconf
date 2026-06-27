@@ -10,10 +10,10 @@
         };
 
         config.settings = {
-            prefer-no-csd = null;
+            prefer-no-csd = _: {};
 
             input = {
-                focus-follows-mouse = null;
+                focus-follows-mouse = _: {};
 
                 keyboard = {
                     xkb = {
@@ -25,8 +25,8 @@
                 };
 
                 touchpad = {
-                    natural-scroll = null;
-                    tap = null;
+                    natural-scroll = _: {};
+                    tap = _: {};
                 };
 
                 mouse = {
@@ -37,26 +37,26 @@
             binds = {
                 "Mod+Return".spawn = config.terminal;
 
-                "Mod+Q".close-window = null;
-                "Mod+F".maximize-column = null;
-                "Mod+G".fullscreen-window = null;
-                "Mod+Shift+F".toggle-window-floating = null;
-                "Mod+C".center-column = null;
+                "Mod+Q".close-window = _: {};
+                "Mod+F".maximize-column = _: {};
+                "Mod+G".fullscreen-window = _: {};
+                "Mod+Shift+F".toggle-window-floating = _: {};
+                "Mod+C".center-column = _: {};
 
-                "Mod+H".focus-column-left = null;
-                "Mod+L".focus-column-right = null;
-                "Mod+K".focus-window-up = null;
-                "Mod+J".focus-window-down = null;
+                "Mod+H".focus-column-left = _: {};
+                "Mod+L".focus-column-right = _: {};
+                "Mod+K".focus-window-up = _: {};
+                "Mod+J".focus-window-down = _: {};
 
-                "Mod+Left".focus-column-left = null;
-                "Mod+Right".focus-column-right = null;
-                "Mod+Up".focus-window-up = null;
-                "Mod+Down".focus-window-down = null;
+                "Mod+Left".focus-column-left = _: {};
+                "Mod+Right".focus-column-right = _: {};
+                "Mod+Up".focus-window-up = _: {};
+                "Mod+Down".focus-window-down = _: {};
 
-                "Mod+Shift+H".move-column-left = null;
-                "Mod+Shift+L".move-column-right = null;
-                "Mod+Shift+K".move-window-up = null;
-                "Mod+Shift+J".move-window-down = null;
+                "Mod+Shift+H".move-column-left = _: {};
+                "Mod+Shift+L".move-column-right = _: {};
+                "Mod+Shift+K".move-window-up = _: {};
+                "Mod+Shift+J".move-window-down = _: {};
 
                 "Mod+1".focus-workspace = "w0";
                 "Mod+2".focus-workspace = "w1";
@@ -79,10 +79,10 @@
                 "Mod+Shift+9".move-column-to-workspace = "w8";
 
                 # Switch between monitors
-                "Mod+Period".focus-monitor-right = null;
-                "Mod+Comma".focus-monitor-left = null;
-                "Mod+Shift+Period".move-column-to-monitor-right = null;
-                "Mod+Shift+Comma".move-column-to-monitor-left = null;
+                "Mod+Period".focus-monitor-right = _: {};
+                "Mod+Comma".focus-monitor-left = _: {};
+                "Mod+Shift+Period".move-column-to-monitor-right = _: {};
+                "Mod+Shift+Comma".move-column-to-monitor-left = _: {};
 
                 "Mod+S".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
                 "Mod+V".spawn-sh = "${pkgs.alsa-utils}/bin/amixer sset Capture toggle";
@@ -95,10 +95,10 @@
                 "Mod+Ctrl+J".set-window-height = "-5%";
                 "Mod+Ctrl+K".set-window-height = "+5%";
 
-                "Mod+WheelScrollDown".focus-column-left = null;
-                "Mod+WheelScrollUp".focus-column-right = null;
-                "Mod+Ctrl+WheelScrollDown".focus-workspace-down = null;
-                "Mod+Ctrl+WheelScrollUp".focus-workspace-up = null;
+                "Mod+WheelScrollDown".focus-column-left = _: {};
+                "Mod+WheelScrollUp".focus-column-right = _: {};
+                "Mod+Ctrl+WheelScrollDown".focus-workspace-down = _: {};
+                "Mod+Ctrl+WheelScrollUp".focus-workspace-up = _: {};
 
                 "Mod+Ctrl+S".spawn-sh = "${pkgs.grim}/bin/grim -l 0 - | ${pkgs.wl-clipboard}/bin/wl-copy";
 
