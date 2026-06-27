@@ -23,7 +23,6 @@
             godot
             blockbench
             blender
-            ollama
             claude-code
             curl
             jq
@@ -37,6 +36,8 @@
             pkg-config
             devenv
         ];
+
+        services.ollama.enable = true;
 
         environment.sessionVariables = {
             GOPATH = "$HOME/.local/share/go";
