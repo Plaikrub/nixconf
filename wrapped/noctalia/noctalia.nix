@@ -56,7 +56,7 @@
                 marginVertical = 0.25;
                 monitors = [];
                 outerCorners = true;
-                position = "left";
+                position = "top";
                 showCapsule = false;
                 showOutline = false;
                 transparent = false;
