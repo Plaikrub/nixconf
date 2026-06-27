@@ -86,6 +86,9 @@
                 XDG_PICTURES_DIR="$HOME/media/pictures"
                 XDG_MUSIC_DIR="$HOME/media/music"
                 XDG_VIDEOS_DIR="$HOME/media/videos"
+                XDG_TEMPLATES_DIR="$HOME"
+                XDG_PUBLICSHARE_DIR="$HOME"
+                XDG_PROJECTS_DIR="$HOME/projects"
             '';
 
             clobberFiles = true;
