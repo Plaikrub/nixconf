@@ -118,22 +118,20 @@
             window-rules = [
                 # Brave (Work) -- Default profile
                 {
-                    matches = [{ app-id = "Brave-browser"; title = ".* — Work — Brave"; }];
+                    matches = [{ app-id = "brave"; title = ".* — Work — Brave"; }];
                     open-on-workspace = "w0";
                 }
                 # Brave (Personal) -- Profile 1
                 {
-                    matches = [{ app-id = "Brave-browser"; title = ".* — Personal — Brave"; }];
+                    matches = [{ app-id = "brave"; title = ".* — Personal — Brave"; }];
                     open-on-workspace = "w1";
                 }
                 # Coding: VS Code, IntelliJ IDEA
                 {
                     matches = [
                         { app-id = "code-url-handler"; }
-                        { app-id = "Code"; }
-                        { app-id = "jetbrains-idea"; }
-                        { app-id = "jetbrains-idea-ce"; }
-                        { app-id = "jetbrains-idea-ultimate"; }
+                        { app-id = "code"; }
+                        { app-id = "idea"; }
                     ];
                     open-on-workspace = "w2";
                 }
