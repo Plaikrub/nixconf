@@ -41,7 +41,7 @@
             binds = {
                 "Mod+Return".spawn = config.terminal;
 
-                "Mod+Q".close-window = _: {};
+                "Mod+Shift+Q".close-window = _: {};
                 "Mod+F".maximize-column = _: {};
                 "Mod+G".fullscreen-window = _: {};
                 "Mod+Shift+F".toggle-window-floating = _: {};
@@ -61,6 +61,11 @@
                 "Mod+Shift+L".move-column-right = _: {};
                 "Mod+Shift+K".move-window-up = _: {};
                 "Mod+Shift+J".move-window-down = _: {};
+
+                "Mod+Shift+Left".move-column-left = _: {};
+                "Mod+Shift+Right".move-column-right = _: {};
+                "Mod+Shift+Up".move-window-up = _: {};
+                "Mod+Shift+Down".move-window-down = _: {};
 
                 "Mod+1".focus-workspace = "w0";
                 "Mod+2".focus-workspace = "w1";
@@ -100,8 +105,8 @@
 
                 "Mod+WheelScrollUp".focus-column-left = _: {};
                 "Mod+WheelScrollDown".focus-column-right = _: {};
-                "Mod+Ctrl+WheelScrollDown".focus-workspace-down = _: {};
-                "Mod+Ctrl+WheelScrollUp".focus-workspace-up = _: {};
+                "Mod+Shift+WheelScrollDown".focus-workspace-down = _: {};
+                "Mod+Shift+WheelScrollUp".focus-workspace-up = _: {};
 
                 "Mod+Ctrl+S".spawn-sh = "${pkgs.grim}/bin/grim -l 0 - | ${pkgs.wl-clipboard}/bin/wl-copy";
 
