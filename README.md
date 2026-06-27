@@ -30,12 +30,11 @@ Every `.nix` file (except `flake.nix`) is auto-imported by flake-parts. Files pr
 
 ### 1. Boot NixOS live USB
 
-Download from https://nixos.org/download/ and boot the GUI installer.
+Download from https://nixos.org/download/ and boot the installer.
 
 ### 2. Partition disks with disko
 
 ```bash
-# Run disko directly from the GitHub repo (no clone needed)
 sudo nix --extra-experimental-features 'nix-command flakes' \
   run github:nix-community/disko -- \
   --mode destroy,format,mount \
@@ -50,8 +49,7 @@ This creates:
 ### 3. Install NixOS
 
 ```bash
-# Install directly from the GitHub repo (no clone needed)
-sudo nixos-install --flake github:Plaikrub/nixconf#main --root /mnt
+sudo nixos-install --flake github:Plaikrub/nixconf#main --no-channel-copy --no-root-password
 ```
 
 ### 4. Post-install
@@ -72,13 +70,7 @@ git clone https://github.com/Plaikrub/nixconf ~/.local/nixconf
 ### Update system
 
 ```bash
-cd ~/.local/nixconf
-
-# Apply current flake
-sudo nixos-rebuild switch --flake .#main
-
-# Or use the nixos-rebuild alias (if nix-index + comma is set up)
-sudo nixos-rebuild switch --flake .#
+sudo nixos-rebuild switch --flake ~/.local/nixconf#main
 ```
 
 ### Update flake inputs
