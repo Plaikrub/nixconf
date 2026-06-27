@@ -16,6 +16,7 @@
             selfpkgs.noctalia-shell
             pkgs.xdg-utils
             pkgs.xdg-user-dirs
+            pkgs.pavucontrol
             pkgs.wl-clipboard
             pkgs.vesktop
             pkgs.bitwarden-desktop

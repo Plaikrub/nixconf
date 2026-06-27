@@ -120,11 +120,13 @@
                 {
                     matches = [{ app-id = "brave"; title = ".* — Work — Brave"; }];
                     open-on-workspace = "w0";
+                    open-fullscreen = true;
                 }
                 # Brave (Personal) -- Profile 1
                 {
                     matches = [{ app-id = "brave"; title = ".* — Personal — Brave"; }];
                     open-on-workspace = "w1";
+                    open-fullscreen = true;
                 }
                 # Coding: VS Code, IntelliJ IDEA
                 {

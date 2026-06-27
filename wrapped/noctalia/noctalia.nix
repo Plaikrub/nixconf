@@ -236,7 +236,7 @@
                 allowPanelsOnScreenWithoutBar = true;
                 animationDisabled = false;
                 animationSpeed = 1;
-                boxRadiusRatio = 1;
+                boxRadiusRatio = 0;
                 compactLockScreen = false;
                 dimmerOpacity = 0.15;
                 enableShadows = true;
@@ -244,7 +244,7 @@
                 iRadiusRatio = 1;
                 language = "";
                 lockOnSuspend = true;
-                radiusRatio = 1;
+                radiusRatio = 0;
                 scaleRatio = 1;
                 screenRadiusRatio = 1;
                 shadowDirection = "bottom_right";
