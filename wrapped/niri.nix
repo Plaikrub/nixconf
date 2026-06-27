@@ -114,7 +114,7 @@
                 gaps = 2;
                 focus-ring = {
                     width = 1;
-                    active-color = "#${self.themeNoHash.base09}";
+                    active-color = "#${self.themeNoHash.base04}";
                 };
             };
 
@@ -205,7 +205,7 @@
 
             spawn-at-startup = [
                 noctaliaExe
-                "${pkgs.swaybg}/bin/swaybg -c 181818"
+                "${pkgs.swaybg}/bin/swaybg -c ${self.themeNoHash.base00}"
                 # ponytail: nirinit restores brave/vesktop/bitwarden/thunderbird from saved session
                 # ponytail: steam skipped in nirinit (restore unreliable), still autostarted silent
                 "steam -silent"
