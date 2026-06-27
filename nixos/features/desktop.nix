@@ -43,6 +43,7 @@
             pkgs.xdg-user-dirs
             pkgs.pavucontrol
             pkgs.wl-clipboard
+            pkgs.git
             vesktop-split
             # ponytail: desktop entry so noctalia launcher finds mullvad-exclude vesktop
             (pkgs.makeDesktopItem {
