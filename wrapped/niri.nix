@@ -116,16 +116,14 @@
 
             window-rules = [
                 # Brave (Work) -- Default profile
-                # ponytail: --class sets wayland app-id, title doesn't include profile name
+                # ponytail: --class sets wayland app-id
                 {
                     matches = [{ app-id = "brave-work"; }];
-                    open-on-workspace = "w0";
                     open-maximized = true;
                 }
                 # Brave (Personal) -- Profile 1
                 {
                     matches = [{ app-id = "brave-personal"; }];
-                    open-on-workspace = "w1";
                     open-maximized = true;
                 }
                 # Coding: VS Code, IntelliJ IDEA
@@ -215,15 +213,8 @@
             spawn-at-startup = [
                 noctaliaExe
                 "${pkgs.swaybg}/bin/swaybg -c 181818"
-                # Autostart apps (except coding tools)
-                # ponytail: \\  in nix = literal \, niri shell-splits \  as escaped space
-                # ponytail: bare brave — unfree, wrapper pkgs lacks permit; --class sets app-id for window rules
-                ''${lib.getExe pkgs.brave} --class=brave-work --profile-directory="Default" %U''
-                ''${lib.getExe pkgs.brave} --class=brave-personal --profile-directory="Profile 1" %U''
-                "vesktop"
-                # ponytail: bare names — both already in systemPackages, wrapper pkgs lacks allowUnfree/insecure permits
-                "bitwarden"
-                "${lib.getExe pkgs.thunderbird}"
+                # ponytail: nirinit restores brave/vesktop/bitwarden/thunderbird from saved session
+                # ponytail: steam skipped in nirinit (restore unreliable), still autostarted silent
                 "steam -silent"
             ];
         };

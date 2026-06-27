@@ -23,6 +23,18 @@
         programs.niri.enable = true;
         programs.niri.package = selfpkgs.niri;
 
+        # ponytail: nirinit saves/restores window layout — replaces spawn-at-startup for most apps
+        services.nirinit = {
+            enable = true;
+            settings = {
+                skip.apps = ["steam"];
+                launch = {
+                    "brave-work" = ''${lib.getExe pkgs.brave} --class=brave-work --profile-directory="Default" %U'';
+                    "brave-personal" = ''${lib.getExe pkgs.brave} --class=brave-personal --profile-directory="Profile 1" %U'';
+                };
+            };
+        };
+
         environment.systemPackages = [
             pkgs.pcmanfm
             selfpkgs.terminal
@@ -32,6 +44,16 @@
             pkgs.pavucontrol
             pkgs.wl-clipboard
             vesktop-split
+            # ponytail: desktop entry so noctalia launcher finds mullvad-exclude vesktop
+            (pkgs.makeDesktopItem {
+                name = "vesktop";
+                desktopName = "Vesktop";
+                genericName = "Discord";
+                exec = "${vesktop-split}/bin/vesktop %U";
+                icon = "vesktop";
+                categories = [ "Network" "InstantMessaging" ];
+                mimeTypes = [ "x-scheme-handler/discord" ];
+            })
             pkgs.bitwarden-desktop
             pkgs.thunderbird
         ];

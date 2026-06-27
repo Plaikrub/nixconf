@@ -45,7 +45,7 @@
         imports = [self.wrapperModules.niri];
         terminal = lib.getExe selfpkgs.terminal;
         env = {
-            EDITOR = lib.mkDefault lib.getExe selfpkgs.neovim;
+            # ponytail: EDITOR already set by environment wrapper (neovimDynamic)
             GOBIN = "$HOME/.local/bin";
             GOPATH = "$HOME/.local/share/go";
             CARGO_HOME = "$HOME/.local/share/cargo";

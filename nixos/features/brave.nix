@@ -44,6 +44,8 @@
             BrowserSignin = 0;
             SyncDisabled = false;
             DefaultProfileSettingAllowed = true;
+            # ponytail: restore last session on launch — replaces autostart
+            RestoreOnStartup = 1;
         };
     };
 }

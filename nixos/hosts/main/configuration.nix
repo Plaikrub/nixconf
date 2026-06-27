@@ -14,6 +14,9 @@
             self.nixosModules.gaming
             self.nixosModules.dev
 
+            # nirinit — niri session save/restore
+            inputs.nirinit.nixosModules.nirinit
+
             # disko
             inputs.disko.nixosModules.disko
             self.diskoConfigurations.hostMain
