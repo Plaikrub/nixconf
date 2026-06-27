@@ -43,7 +43,7 @@
             selfpkgs.noctalia-shell
             pkgs.xdg-utils
             pkgs.xdg-user-dirs
-            pkgs.pavucontrol
+            pkgs.pwvucontrol
             pkgs.wl-clipboard
             pkgs.bitwarden-desktop
             pkgs.thunderbird
