@@ -135,6 +135,7 @@
                         { app-id = "idea"; }
                     ];
                     open-on-workspace = "w2";
+                    open-fullscreen = true;
                 }
                 # Gaming: Steam, proton/wine/umu games
                 # ponytail: fullscreen covers noctalia bar on w3 — no layer-rule needed
@@ -156,6 +157,7 @@
                 {
                     matches = [{ app-id = "vesktop"; }];
                     open-on-workspace = "w5";
+                    open-fullscreen = true;
                 }
                 # Bitwarden
                 {
@@ -166,6 +168,7 @@
                 {
                     matches = [{ app-id = "thunderbird"; }];
                     open-on-workspace = "w7";
+                    open-fullscreen = true;
                 }
             ];
 
