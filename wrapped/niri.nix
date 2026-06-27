@@ -85,7 +85,6 @@
                 "Mod+Shift+Comma".move-column-to-monitor-left = _: {};
 
                 "Mod+S".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
-                "Mod+V".spawn-sh = "${pkgs.alsa-utils}/bin/amixer sset Capture toggle";
 
                 "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
                 "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
@@ -137,14 +136,21 @@
                     ];
                     open-on-workspace = "w2";
                 }
-                # Gaming: Steam, games
+                # Gaming: Steam, proton/wine/umu games
+                # ponytail: fullscreen covers noctalia bar on w3 — no layer-rule needed
                 {
                     matches = [
                         { app-id = "steam"; }
                         { app-id = "Steam"; }
                         { app-id = "gamescope"; }
+                        # proton/wine/umu — app-id is usually the game exe
+                        { app-id = ".exe"; }
+                        { app-id = "wine"; }
+                        { app-id = "proton"; }
+                        { app-id = "umu"; }
                     ];
                     open-on-workspace = "w3";
+                    open-fullscreen = true;
                 }
                 # Discord (Vesktop)
                 {
