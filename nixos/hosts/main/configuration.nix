@@ -10,6 +10,7 @@
             self.nixosModules.network
             self.nixosModules.desktop
             self.nixosModules.gaming
+            self.nixosModules.dev
 
             # disko
             inputs.disko.nixosModules.disko

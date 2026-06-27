@@ -1,7 +1,6 @@
 {
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-        nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
         # The framework I use to structure the flake, module imports are automatic via custom function below
         flake-parts.url = "github:hercules-ci/flake-parts";
@@ -17,11 +16,6 @@
         };
 
         wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
-
-        hjem = {
-            url = "github:feel-co/hjem";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
     };
 
     # Import all .nix files from current directory except flake.nix recursively

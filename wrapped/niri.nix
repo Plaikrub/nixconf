@@ -1,5 +1,4 @@
 { self, lib, ... }: {
-    # unused
     flake.wrappers.niri = { wlib, pkgs, config, ... }: let
         noctaliaExe = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia-shell;
     in {
