@@ -24,6 +24,11 @@
             url = "github:amaanq/nirinit";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        hjem = {
+            url = "github:feel-co/hjem";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     # Import all .nix files from current directory except flake.nix recursively

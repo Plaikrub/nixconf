@@ -158,17 +158,6 @@
                     open-on-workspace = "w5";
                     open-maximized = true;
                 }
-                # Bitwarden
-                {
-                    matches = [{ app-id = "bitwarden"; }];
-                    open-on-workspace = "w6";
-                }
-                # Mail (Thunderbird)
-                {
-                    matches = [{ app-id = "thunderbird"; }];
-                    open-on-workspace = "w7";
-                    open-maximized = true;
-                }
             ];
 
             outputs = {

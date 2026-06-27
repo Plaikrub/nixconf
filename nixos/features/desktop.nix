@@ -1,5 +1,6 @@
 {self, ...}: {
-    flake.nixosModules.desktop = {pkgs, lib, ...}: let
+    flake.nixosModules.desktop = {pkgs, lib, config, ...}: let
+        user = config.preferences.user.name;
         selfpkgs = self.packages."${pkgs.stdenv.hostPlatform.system}";
         # ponytail: wrap vesktop with mullvad-exclude so Discord bypasses VPN
         vesktop-split = pkgs.symlinkJoin {
@@ -40,10 +41,9 @@
             selfpkgs.terminal
             selfpkgs.noctalia-shell
             pkgs.xdg-utils
-            pkgs.xdg-user-dirs
             pkgs.pavucontrol
             pkgs.wl-clipboard
-            pkgs.git
+            selfpkgs.git
             vesktop-split
             # ponytail: desktop entry so noctalia launcher finds mullvad-exclude vesktop
             (pkgs.makeDesktopItem {
@@ -77,14 +77,18 @@
             monospace = ["FiraMono Nerd Font"];
         };
 
-        environment.etc."xdg/user-dirs.defaults".text = ''
-            DESKTOP=desktop
-            DOCUMENTS=documents
-            DOWNLOAD=downloads
-            PICTURES=media/pictures
-            MUSIC=media/music
-            VIDEOS=media/videos
-        '';
+        hjem.users.${user} = {
+            files.".config/user-dirs.dirs".text = ''
+                XDG_DESKTOP_DIR="$HOME/desktop"
+                XDG_DOWNLOAD_DIR="$HOME/downloads"
+                XDG_DOCUMENTS_DIR="$HOME/documents"
+                XDG_PICTURES_DIR="$HOME/media/pictures"
+                XDG_MUSIC_DIR="$HOME/media/music"
+                XDG_VIDEOS_DIR="$HOME/media/videos"
+            '';
+
+            clobberFiles = true;
+        };
 
         # Tell apps to prefer dark theme
         environment.sessionVariables = {
