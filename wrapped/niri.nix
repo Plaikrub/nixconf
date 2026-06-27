@@ -98,8 +98,8 @@
                 "Mod+Ctrl+J".set-window-height = "-5%";
                 "Mod+Ctrl+K".set-window-height = "+5%";
 
-                "Mod+WheelScrollDown".focus-column-left = _: {};
-                "Mod+WheelScrollUp".focus-column-right = _: {};
+                "Mod+WheelScrollUp".focus-column-left = _: {};
+                "Mod+WheelScrollDown".focus-column-right = _: {};
                 "Mod+Ctrl+WheelScrollDown".focus-workspace-down = _: {};
                 "Mod+Ctrl+WheelScrollUp".focus-workspace-up = _: {};
 
