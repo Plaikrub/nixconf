@@ -162,7 +162,7 @@
                 }
                 # Bitwarden
                 {
-                    matches = [{ app-id = "Bitwarden"; }];
+                    matches = [{ app-id = "bitwarden"; }];
                     open-on-workspace = "w6";
                 }
                 # Mail (Thunderbird)
@@ -218,13 +218,13 @@
                 # Autostart apps (except coding tools)
                 # ponytail: \\  in nix = literal \, niri shell-splits \  as escaped space
                 # ponytail: bare brave — unfree, wrapper pkgs lacks permit; --class sets app-id for window rules
-                "brave --class=brave-work --profile-directory=Default"
-                "brave --class=brave-personal --profile-directory=Profile\\ 1"
+                ''${brave-bin} --class=brave-work --profile-directory="Default" %U''
+                ''${brave-bin} --class=brave-personal --profile-directory="Profile 1" %U''
                 "vesktop"
                 # ponytail: bare names — both already in systemPackages, wrapper pkgs lacks allowUnfree/insecure permits
                 "bitwarden"
                 "${lib.getExe pkgs.thunderbird}"
-                "steam"
+                "steam -silent"
             ];
         };
     };
