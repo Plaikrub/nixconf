@@ -9,9 +9,12 @@
             set fish_greeting
             fish_vi_key_bindings
 
-            # ponytail: --no-config skips fish's default fish_history="fish" setup
-            if test -z "$fish_history"
-                set -g fish_history fish
+            # ponytail: --no-config skips fish's default fish_history setup
+            set -g fish_history fish
+            set -g fish_history_max 100000
+            # sync history across sessions before each command
+            function _fish_sync_history --on-event fish_preexec
+                history merge
             end
 
             if test -S $HOME/.bitwarden-ssh-agent.sock
