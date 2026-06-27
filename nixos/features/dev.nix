@@ -25,7 +25,6 @@
             blender
             ollama
             claude-code
-            lazygit
             curl
             jq
             sqlite

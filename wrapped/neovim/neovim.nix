@@ -28,6 +28,9 @@
                 pkgs.vimPlugins.oil-nvim
                 pkgs.vimPlugins.lualine-nvim
                 pkgs.vimPlugins.luasnip
+
+                # Indent guide lines
+                pkgs.vimPlugins.indent-blankline-nvim
             ];
         };
 
@@ -73,6 +76,9 @@
                 pkgs.vimPlugins.oil-nvim
                 pkgs.vimPlugins.lualine-nvim
                 pkgs.vimPlugins.luasnip
+
+                # Indent guide lines
+                pkgs.vimPlugins.indent-blankline-nvim
             ];
         };
 

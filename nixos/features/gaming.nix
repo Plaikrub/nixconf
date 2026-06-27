@@ -24,7 +24,6 @@
             protonup-qt
             dxvk
             mangohud
-            gamescope
             winetricks
             wineWow64Packages.staging
             umu-launcher

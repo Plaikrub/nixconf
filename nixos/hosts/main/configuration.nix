@@ -36,8 +36,6 @@
             networkmanager.enable = true;
         };
 
-        hardware.cpu.amd.updateMicrocode = true;
-
         services = {
             flatpak.enable = true;
             udisks2.enable = true;
@@ -53,6 +51,6 @@
         xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
         xdg.portal.enable = true;
 
-        system.stateVersion = "26.11";
+        system.stateVersion = "26.05";
     };
 }

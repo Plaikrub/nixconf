@@ -15,7 +15,10 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+        wrapper-modules = {
+            url = "github:BirdeeHub/nix-wrapper-modules";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     # Import all .nix files from current directory except flake.nix recursively

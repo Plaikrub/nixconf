@@ -146,11 +146,6 @@
                     ];
                     open-on-workspace = "w3";
                 }
-                # Brave (Personal) -- second window on w4
-                {
-                    matches = [{ app-id = "Brave-browser"; title = ".* — Personal — Brave"; }];
-                    open-on-workspace = "w4";
-                }
                 # Discord (Vesktop)
                 {
                     matches = [{ app-id = "vesktop"; }];

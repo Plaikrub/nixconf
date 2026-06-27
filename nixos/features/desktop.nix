@@ -3,8 +3,6 @@
         selfpkgs = self.packages."${pkgs.stdenv.hostPlatform.system}";
     in {
         imports = [
-            self.nixosModules.gtk
-
             self.nixosModules.pipewire
             self.nixosModules.brave
         ];
