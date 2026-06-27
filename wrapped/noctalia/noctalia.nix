@@ -49,7 +49,7 @@
             };
             bar = {
                 capsuleOpacity = 1;
-                density = "comfortable";
+                density = "compact";
                 exclusive = true;
                 floating = false;
                 marginHorizontal = 0.25;
