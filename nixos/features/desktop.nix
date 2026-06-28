@@ -49,6 +49,7 @@
             pkgs.bitwarden-desktop
             pkgs.thunderbird
 
+            vesktop-split
             # ponytail: desktop entry so noctalia launcher finds mullvad-exclude vesktop
             (pkgs.makeDesktopItem {
                 name = "vesktop";
