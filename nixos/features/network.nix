@@ -5,25 +5,29 @@
         services.mullvad-vpn.enableExcludeWrapper = true;
         services.openssh.enable = true;
 
-        # Mount net_cls cgroup v1 controller
         fileSystems."/sys/fs/cgroup/net_cls" = {
             device = "net_cls";
             fsType = "cgroup";
-            options = [ "net_cls" "x-mount.mkdir" ];  # x-mount.mkdir ensures the dir is created
+            options = [ "net_cls" "x-mount.mkdir" ];
         };
 
-        systemd.services.mullvad-cgroup-setup = {
-            description = "Setup Mullvad net_cls cgroup for split tunneling";
-            before = [ "mullvad-daemon.service" ];
-            wantedBy = [ "mullvad-daemon.service" ];
+        systemd.services.mullvad-cgroup-fix = {
+            description = "Fix permissions for Mullvad split tunneling cgroup";
+            after = [ "mullvad-daemon.service" ];
+            requires = [ "mullvad-daemon.service" ];
+            wantedBy = [ "multi-user.target" ];
             serviceConfig = {
                 Type = "oneshot";
                 RemainAfterExit = true;
                 ExecStart = ''
-                    /run/current-system/sw/bin/mkdir -p /sys/fs/cgroup/net_cls/mullvad-exclusions
-                    /run/current-system/sw/bin/touch /sys/fs/cgroup/net_cls/mullvad-exclusions/cgroup.procs
-                    /run/current-system/sw/bin/chmod 666 /sys/fs/cgroup/net_cls/mullvad-exclusions/cgroup.procs
-                    /run/current-system/sw/bin/chown root:root /sys/fs/cgroup/net_cls/mullvad-exclusions/cgroup.procs
+                    /bin/sh -c '
+                        dir="/sys/fs/cgroup/net_cls/mullvad-exclusions"
+                        if [ -d "$dir" ]; then
+                        chmod 777 "$dir"
+                        chmod 666 "$dir/cgroup.procs" 2>/dev/null || true
+                        echo "Mullvad cgroup permissions applied"
+                        fi
+                    '
                 '';
             };
         };
