@@ -36,6 +36,11 @@
             kernelModules = ["coretemp" "cpuid" "v4l2loopback"];
         };
 
+        hardware.graphics.enable = true;
+        hardware.nvidia.open = true;
+        hardware.nvidia.modesetting.enable = true;
+        services.xserver.videoDrivers = [ "nvidia" ];
+
         networking = {
             hostName = "atsada-pc";
             networkmanager.enable = true;
