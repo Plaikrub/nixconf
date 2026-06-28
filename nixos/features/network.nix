@@ -1,6 +1,7 @@
 {
     flake.nixosModules.network = { pkgs, ... }: {
         services.tailscale.enable = true;
+        services.mullvad-vpn.package = pkgs.mullvad-vpn;
         services.mullvad-vpn.enable = true;
         services.mullvad-vpn.enableExcludeWrapper = true;
         services.openssh.enable = true;
