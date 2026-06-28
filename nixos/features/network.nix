@@ -16,18 +16,19 @@
             after = [ "mullvad-daemon.service" ];
             requires = [ "mullvad-daemon.service" ];
             wantedBy = [ "multi-user.target" ];
+
             serviceConfig = {
                 Type = "oneshot";
                 RemainAfterExit = true;
-                ExecStart = ''
-                    /bin/sh -c '
-                        dir="/sys/fs/cgroup/net_cls/mullvad-exclusions"
-                        if [ -d "$dir" ]; then
+                ExecStart = pkgs.writeShellScript "mullvad-cgroup-fix" ''
+                    dir="/sys/fs/cgroup/net_cls/mullvad-exclusions"
+                    if [ -d "$dir" ]; then
                         chmod 777 "$dir"
                         chmod 666 "$dir/cgroup.procs" 2>/dev/null || true
-                        echo "Mullvad cgroup permissions applied"
-                        fi
-                    '
+                        echo "Mullvad cgroup permissions fixed"
+                    else
+                        echo "Warning: Mullvad cgroup directory not found"
+                    fi
                 '';
             };
         };
