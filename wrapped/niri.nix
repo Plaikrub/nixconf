@@ -12,6 +12,11 @@
         config.settings = {
             prefer-no-csd = _: {};
 
+            cursor = {
+                # xcursor-theme = "";
+                xcursor-size = 24;
+            };
+
             input = {
                 focus-follows-mouse = _: {};
 
