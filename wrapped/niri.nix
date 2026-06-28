@@ -30,6 +30,7 @@
                 };
 
                 mouse = {
+                    accel-speed = 0.25;
                     accel-profile = "flat";
                 };
             };
