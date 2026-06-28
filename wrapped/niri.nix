@@ -142,7 +142,7 @@
                         { app-id = "code"; }
                         { app-id = "idea"; }
                     ];
-                    open-on-workspace = "w2";
+                    open-on-workspace = "w1";
                     open-maximized = true;
                 }
                 # Gaming: Steam, proton/wine/umu games
@@ -158,13 +158,13 @@
                         { app-id = "proton"; }
                         { app-id = "umu"; }
                     ];
-                    open-on-workspace = "w3";
+                    open-on-workspace = "w2";
                     open-fullscreen = true;
                 }
                 # Discord (Vesktop)
                 {
                     matches = [{ app-id = "vesktop"; }];
-                    open-on-workspace = "w5";
+                    open-on-workspace = "w4";
                     open-maximized = true;
                 }
             ];
@@ -193,17 +193,14 @@
                 monitor1 = { open-on-output = "DP-1"; };
                 monitor2 = { open-on-output = "HDMI-A-1"; };
             in {
-                # DP-1 (left monitor): workspaces 1-4
+                # DP-1 (left monitor): workspaces 1-3
                 "w0" = settings // monitor1;
                 "w1" = settings // monitor1;
                 "w2" = settings // monitor1;
-                "w3" = settings // monitor1;
-                # HDMI-A-1 (right monitor): workspaces 5-9
+                # HDMI-A-1 (right monitor): workspaces 4-6
+                "w3" = settings // monitor2;
                 "w4" = settings // monitor2;
                 "w5" = settings // monitor2;
-                "w6" = settings // monitor2;
-                "w7" = settings // monitor2;
-                "w8" = settings // monitor2;
             };
 
             xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
@@ -212,8 +209,8 @@
                 noctaliaExe
                 "${pkgs.swaybg}/bin/swaybg -c ${self.themeNoHash.base00}"
                 # ponytail: nirinit restores brave/vesktop/bitwarden/thunderbird from saved session
-                # ponytail: steam skipped in nirinit (restore unreliable), still autostarted silent
-                "steam -silent"
+                # ponytail: steam skipped in nirinit (restore unreliable), still autostarted
+                "steam"
             ];
         };
     };
