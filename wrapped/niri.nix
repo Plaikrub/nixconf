@@ -143,6 +143,8 @@
                 # ponytail: fullscreen covers noctalia bar on w3 — no layer-rule needed
                 {
                     matches = [
+                        { app-id = "steam"; }
+                        { app-id = "Steam"; }
                         { app-id = "gamescope"; }
                         # proton/wine/umu — app-id is usually the game exe
                         { app-id = ".exe"; }
